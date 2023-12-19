@@ -4,8 +4,13 @@
       <el-col :span="4">
         <div class="home_sidebar">
           <ul class="menu-list">
-            <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
-              @click="changeMenu(index)">
+            <li
+              v-for="(item, index) in iconList"
+              :key="index"
+              :class="{ activeNav: index == current }"
+              class="iconItem"
+              @click="changeMenu(index)"
+            >
               <div class="side-block"></div>
               <component :is="item" class="svgItem" />
               <span class="iconfont" :class="item"></span>
@@ -25,41 +30,41 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { ChatDotSquare, VideoCamera, Setting } from '@element-plus/icons-vue'
-import { useRouter, useRoute } from 'vue-router';
-import { ElMessage } from 'element-plus';
+import { useRouter, useRoute } from 'vue-router'
+import { ElMessage } from 'element-plus'
 //侧边栏样式
 let iconList = reactive([ChatDotSquare, VideoCamera, Setting])
 
 let current = ref(0)
 let $route = useRoute()
-let redirect: any = $route.query.redirect;
+let redirect: any = $route.query.redirect
 let $router = useRouter()
 
 const changeMenu = (index: number) => {
   switch (index) {
     case 0:
-      current.value = index;
-      $router.push({ name: "ChatHome" } || redirect,);
-      break;
+      current.value = index
+      $router.push({ name: 'ChatHome' } || redirect)
+      break
     case 1:
-      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
-      break;
+      ElMessage('该功能还没有开发哦，敬请期待一下吧~🥳')
+      break
     case 2:
-      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
-      break;
+      ElMessage('该功能还没有开发哦，敬请期待一下吧~🥳')
+      break
     case 3:
-      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
-      break;
+      ElMessage('该功能还没有开发哦，敬请期待一下吧~🥳')
+      break
     case 4:
-      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
-      break;
+      ElMessage('该功能还没有开发哦，敬请期待一下吧~🥳')
+      break
     default:
       $router.push({
-        name: "ChatHome",
-      });
+        name: 'ChatHome',
+      })
   }
 
-  current.value = index;
+  current.value = index
 }
 </script>
 
@@ -86,7 +91,6 @@ const changeMenu = (index: number) => {
         &:hover {
           span {
             color: rgb(29, 144, 245);
-            ;
           }
           .side-block {
             // opacity: 1;
@@ -121,4 +125,5 @@ const changeMenu = (index: number) => {
       margin-left: 15px;
     }
   }
-}</style>
+}
+</style>
