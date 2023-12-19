@@ -4,18 +4,19 @@
       <el-col :span="4">
         <div class="home_sidebar">
           <ul class="menu-list">
-            <li
-              v-for="(item, index) in iconList"
-              :key="index"
-              :class="{ activeNav: index == current }"
-              class="iconItem"
-              @click="changeMenu(index)"
-            >
+            <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
+              @click="changeMenu(index)">
               <div class="side-block"></div>
               <component :is="item" class="svgItem" />
               <span class="iconfont" :class="item"></span>
             </li>
           </ul>
+
+          <div class="my-avatar">
+            <img src="../../assets/images/background.jpg" alt="">
+            <div class="login-dot"></div>
+          </div>
+
         </div>
       </el-col>
       <el-col :span="20">
@@ -43,7 +44,6 @@ let $router = useRouter()
 const changeMenu = (index: number) => {
   switch (index) {
     case 0:
-      current.value = index
       $router.push({ name: 'ChatHome' } || redirect)
       break
     case 1:
@@ -87,17 +87,32 @@ const changeMenu = (index: number) => {
       // margin-left: 20px;
       li {
         margin-bottom: 15px;
+
         // margin: 40px 0 0 30px
         &:hover {
           span {
             color: rgb(29, 144, 245);
           }
+
+          .svgItem {
+            color: rgb(29, 144, 245);
+          }
+
           .side-block {
             // opacity: 1;
             background-color: rgb(29, 144, 245);
           }
         }
       }
+    }
+
+    .my-avatar img {
+      border-radius: 50%;
+      border-style: solid;
+      border-color: white;
+      overflow: hidden;
+      width: 50px;
+      height: 50px;
     }
   }
 
@@ -108,17 +123,23 @@ const changeMenu = (index: number) => {
   .activeNav {
     // background-color: rgb(29, 144, 245);
     color: rgb(29, 144, 245);
+
+    div {
+      background-color: rgb(29, 144, 245);
+    }
   }
 
   .iconItem {
     // width: 30px;
     // height: 30px;
     display: flex;
+
     .side-block {
       width: 8px;
       height: 30px;
       // background-color: red;
     }
+
     .svgItem {
       width: 30px;
       height: 30px;
