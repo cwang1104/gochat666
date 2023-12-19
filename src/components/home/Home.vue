@@ -4,16 +4,11 @@
       <el-col :span="4">
         <div class="home_sidebar">
           <ul class="menu-list">
-            <li
-              v-for="(item, index) in iconList"
-              :key="index"
-              :class="nav"
-              @click="changeMenu(index)"
-            >
-              <el-icon :size="iconSize" :color="iconColor">
-                <component :is="item" />
-              </el-icon>
+            <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
+              @click="changeMenu(index)">
               <div class="side-block"></div>
+              <component :is="item" class="svgItem" />
+              <span class="iconfont" :class="item"></span>
             </li>
           </ul>
         </div>
@@ -30,10 +25,42 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { ChatDotSquare, VideoCamera, Setting } from '@element-plus/icons-vue'
+import { useRouter, useRoute } from 'vue-router';
+import { ElMessage } from 'element-plus';
 //侧边栏样式
-let iconSize = ref(30)
-let iconColor = ref('white')
 let iconList = reactive([ChatDotSquare, VideoCamera, Setting])
+
+let current = ref(0)
+let $route = useRoute()
+let redirect: any = $route.query.redirect;
+let $router = useRouter()
+
+const changeMenu = (index: number) => {
+  switch (index) {
+    case 0:
+      current.value = index;
+      $router.push({ name: "ChatHome" } || redirect,);
+      break;
+    case 1:
+      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
+      break;
+    case 2:
+      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
+      break;
+    case 3:
+      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
+      break;
+    case 4:
+      ElMessage("该功能还没有开发哦，敬请期待一下吧~🥳");
+      break;
+    default:
+      $router.push({
+        name: "ChatHome",
+      });
+  }
+
+  current.value = index;
+}
 </script>
 
 <style scoped lang="scss">
@@ -43,15 +70,29 @@ let iconList = reactive([ChatDotSquare, VideoCamera, Setting])
 
   .home_sidebar {
     width: 100%;
-    background-color: $base-coclor;
+    // background-color: $base-coclor;
     height: 100vh;
     border-radius: 20px 0 0 20px;
 
+    // transform: translate(0, -50%);
     .menu-list {
-      margin-left: 20px;
+      position: relative;
+      top: 25%;
 
+      // margin-left: 20px;
       li {
-        margin: 40px 0 0 30px;
+        margin-bottom: 15px;
+        // margin: 40px 0 0 30px
+        &:hover {
+          span {
+            color: rgb(29, 144, 245);
+            ;
+          }
+          .side-block {
+            // opacity: 1;
+            background-color: rgb(29, 144, 245);
+          }
+        }
       }
     }
   }
@@ -59,5 +100,25 @@ let iconList = reactive([ChatDotSquare, VideoCamera, Setting])
   .home_content {
     height: 100vh;
   }
-}
-</style>
+
+  .activeNav {
+    // background-color: rgb(29, 144, 245);
+    color: rgb(29, 144, 245);
+  }
+
+  .iconItem {
+    // width: 30px;
+    // height: 30px;
+    display: flex;
+    .side-block {
+      width: 8px;
+      height: 30px;
+      // background-color: red;
+    }
+    .svgItem {
+      width: 30px;
+      height: 30px;
+      margin-left: 15px;
+    }
+  }
+}</style>
