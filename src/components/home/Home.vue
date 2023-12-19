@@ -4,8 +4,13 @@
       <el-col :span="4">
         <div class="home_sidebar">
           <ul class="menu-list">
-            <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
-              @click="changeMenu(index)">
+            <li
+              v-for="(item, index) in iconList"
+              :key="index"
+              :class="{ activeNav: index == current }"
+              class="iconItem"
+              @click="changeMenu(index)"
+            >
               <div class="side-block"></div>
               <component :is="item" class="svgItem" />
               <span class="iconfont" :class="item"></span>
@@ -13,10 +18,9 @@
           </ul>
 
           <div class="my-avatar">
-            <img src="../../assets/images/background.jpg" alt="">
+            <img src="../../assets/images/background.jpg" alt="" />
             <div class="login-dot"></div>
           </div>
-
         </div>
       </el-col>
       <el-col :span="20">
