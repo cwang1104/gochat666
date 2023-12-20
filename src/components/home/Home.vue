@@ -16,9 +16,11 @@
               <span class="iconfont" :class="item"></span>
             </li>
           </ul>
-          <div class="my_avatar">
-            <img src="../../assets/images/background.jpg" alt="" />
-            <div class="login_dot"></div>
+          <div class="my_avatar_container">
+            <div class="my_avatar">
+              <img src="../../assets/images/background.jpg" alt="" />
+              <div class="login_dot"></div>
+            </div>
           </div>
         </div>
       </el-col>
@@ -87,7 +89,6 @@ const changeMenu = (index: number) => {
       position: relative;
       top: 25%;
 
-      // margin-left: 20px;
       li {
         margin-bottom: 15px;
 
@@ -109,10 +110,23 @@ const changeMenu = (index: number) => {
       }
     }
 
-    .my_avatar {
+    .my_avatar_container {
       position: relative;
       top: 60%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .my_avatar {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      /* 水平居中 */
+      align-items: center;
+      /* 垂直居中 */
 
       img {
         border-radius: 50%;
@@ -120,19 +134,19 @@ const changeMenu = (index: number) => {
         border-color: white;
         border-width: 2px;
         overflow: hidden;
-        width: 50px;
-        height: 50px;
+        width: 100%;
+        height: 100%;
       }
 
       .login_dot {
         position: absolute;
         top: 0;
-        right: 34%;
+        right: 0;
         width: 15px;
         height: 15px;
         background-color: rgb(32, 221, 32);
         border-radius: 50%;
-        // z-index: 10;
+        z-index: 10;
       }
     }
   }
@@ -154,16 +168,19 @@ const changeMenu = (index: number) => {
     // width: 30px;
     // height: 30px;
     display: flex;
+    justify-content: center;
 
     .side_block {
       width: 8px;
       height: 30px;
+      position: absolute;
+      left: 0;
       // background-color: red;
     }
 
     .svgItem {
-      position: relative;
-      left: 25%;
+      // position: relative;
+      // left: 25%;
       width: 30px;
       height: 30px;
       margin-left: 15px;

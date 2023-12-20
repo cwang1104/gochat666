@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <h1>一级路由home</h1>
-  </div>
+  <!-- <Home/> -->
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+// import Home from "@/components/home/Home.vue"
+</script>
 
 <style lang="scss" scoped></style>
