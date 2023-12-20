@@ -3,23 +3,17 @@
     <el-row>
       <el-col :span="4">
         <div class="home_sidebar">
-          <ul class="menu-list">
-            <li
-              v-for="(item, index) in iconList"
-              :key="index"
-              :class="{ activeNav: index == current }"
-              class="iconItem"
-              @click="changeMenu(index)"
-            >
-              <div class="side-block"></div>
+          <ul class="menu_list">
+            <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
+              @click="changeMenu(index)">
+              <div class="side_block"></div>
               <component :is="item" class="svgItem" />
               <span class="iconfont" :class="item"></span>
             </li>
           </ul>
-
-          <div class="my-avatar">
+          <div class="my_avatar">
             <img src="../../assets/images/background.jpg" alt="" />
-            <div class="login-dot"></div>
+            <div class="login_dot"></div>
           </div>
         </div>
       </el-col>
@@ -84,7 +78,7 @@ const changeMenu = (index: number) => {
     border-radius: 20px 0 0 20px;
 
     // transform: translate(0, -50%);
-    .menu-list {
+    .menu_list {
       position: relative;
       top: 25%;
 
@@ -102,7 +96,7 @@ const changeMenu = (index: number) => {
             color: rgb(29, 144, 245);
           }
 
-          .side-block {
+          .side_block {
             // opacity: 1;
             background-color: rgb(29, 144, 245);
           }
@@ -110,14 +104,34 @@ const changeMenu = (index: number) => {
       }
     }
 
-    .my-avatar img {
-      border-radius: 50%;
-      border-style: solid;
-      border-color: white;
-      overflow: hidden;
-      width: 50px;
-      height: 50px;
+    .my_avatar {
+      position: relative;
+      top: 60%;
+      text-align: center;
+
+      img {
+        border-radius: 50%;
+        border-style: solid;
+        border-color: white;
+        border-width: 2px;
+        overflow: hidden;
+        width: 50px;
+        height: 50px;
+      }
+
+      .login_dot {
+        position: absolute;
+        top: 0;
+        right: 34%;
+        width: 15px;
+        height: 15px;
+        background-color: rgb(32, 221, 32);
+        border-radius: 50%;
+        // z-index: 10;
+      }
     }
+
+
   }
 
   .home_content {
@@ -138,13 +152,15 @@ const changeMenu = (index: number) => {
     // height: 30px;
     display: flex;
 
-    .side-block {
+    .side_block {
       width: 8px;
       height: 30px;
       // background-color: red;
     }
 
     .svgItem {
+      position: relative;
+      left: 25%;
       width: 30px;
       height: 30px;
       margin-left: 15px;
