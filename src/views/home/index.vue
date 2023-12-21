@@ -2,7 +2,7 @@
   <div class="home_container">
     <el-row>
       <el-col :span="4">
-       <Nav></Nav>
+        <Nav></Nav>
       </el-col>
       <el-col :span="20">
         <div class="home_content">
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import Nav from '@/components/home/Nav.vue';
+import Nav from '@/components/home/Nav.vue'
 </script>
 
 <style scoped lang="scss">

@@ -1,8 +1,13 @@
 <template>
   <div class="home_sidebar">
     <ul class="menu_list">
-      <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
-        @click="changeMenu(index)">
+      <li
+        v-for="(item, index) in iconList"
+        :key="index"
+        :class="{ activeNav: index == current }"
+        class="iconItem"
+        @click="changeMenu(index)"
+      >
         <div class="side_block"></div>
         <component :is="item" class="svgItem" />
         <span class="iconfont" :class="item"></span>
