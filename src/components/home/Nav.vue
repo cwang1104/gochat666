@@ -1,35 +1,19 @@
 <template>
-  <div class="home_container">
-    <el-row>
-      <el-col :span="4">
-        <div class="home_sidebar">
-          <ul class="menu_list">
-            <li
-              v-for="(item, index) in iconList"
-              :key="index"
-              :class="{ activeNav: index == current }"
-              class="iconItem"
-              @click="changeMenu(index)"
-            >
-              <div class="side_block"></div>
-              <component :is="item" class="svgItem" />
-              <span class="iconfont" :class="item"></span>
-            </li>
-          </ul>
-          <div class="my_avatar_container">
-            <div class="my_avatar">
-              <img src="../../assets/images/background.jpg" alt="" />
-              <div class="login_dot"></div>
-            </div>
-          </div>
-        </div>
-      </el-col>
-      <el-col :span="20">
-        <div class="home_content">
-          <router-view></router-view>
-        </div>
-      </el-col>
-    </el-row>
+  <div class="home_sidebar">
+    <ul class="menu_list">
+      <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
+        @click="changeMenu(index)">
+        <div class="side_block"></div>
+        <component :is="item" class="svgItem" />
+        <span class="iconfont" :class="item"></span>
+      </li>
+    </ul>
+    <div class="my_avatar_container">
+      <div class="my_avatar">
+        <img src="../../assets/images/background.jpg" alt="" />
+        <div class="login_dot"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -183,7 +167,7 @@ const changeMenu = (index: number) => {
       // left: 25%;
       width: 30px;
       height: 30px;
-      margin-left: 15px;
+      // margin-left: 15px;
     }
   }
 }
