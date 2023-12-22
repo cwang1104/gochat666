@@ -11,7 +11,15 @@ export const constantRoute = <Array<RouteRecordRaw>>[
   {
     path: '/',
     component: () => import('@/views/home/index.vue'),
-    name: 'layout',
+    name: 'home',
+    redirect:"/chat",
+    children: [
+      {
+        path:'/chat',
+        component:() => import("@/views/chat/index.vue"),
+        name:'chatHome',
+      },
+    ],
   },
   {
     path: '/404',

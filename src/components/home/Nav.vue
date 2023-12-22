@@ -1,13 +1,8 @@
 <template>
   <div class="home_sidebar">
     <ul class="menu_list">
-      <li
-        v-for="(item, index) in iconList"
-        :key="index"
-        :class="{ activeNav: index == current }"
-        class="iconItem"
-        @click="changeMenu(index)"
-      >
+      <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
+        @click="changeMenu(index)">
         <div class="side_block"></div>
         <component :is="item" class="svgItem" />
         <span class="iconfont" :class="item"></span>
@@ -25,20 +20,23 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { ChatDotSquare, VideoCamera, Setting } from '@element-plus/icons-vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 //侧边栏样式
 let iconList = reactive([ChatDotSquare, VideoCamera, Setting])
 
 let current = ref(0)
-let $route = useRoute()
-let redirect: any = $route.query.redirect
+// let $route = useRoute()
+// let redirect: any = $route.query.redirect
 let $router = useRouter()
 
 const changeMenu = (index: number) => {
   switch (index) {
     case 0:
-      $router.push({ name: 'ChatHome' } || redirect)
+      console.log("跳转");
+      $router.push({
+        name: "chatHome"
+      });
       break
     case 1:
       ElMessage('该功能还没有开发哦，敬请期待一下吧~🥳')
@@ -54,7 +52,7 @@ const changeMenu = (index: number) => {
       break
     default:
       $router.push({
-        name: 'ChatHome',
+        name: 'chat',
       })
   }
 
