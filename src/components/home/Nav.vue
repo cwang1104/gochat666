@@ -1,8 +1,13 @@
 <template>
   <div class="home_sidebar">
     <ul class="menu_list">
-      <li v-for="(item, index) in iconList" :key="index" :class="{ activeNav: index == current }" class="iconItem"
-        @click="changeMenu(index)">
+      <li
+        v-for="(item, index) in iconList"
+        :key="index"
+        :class="{ activeNav: index == current }"
+        class="iconItem"
+        @click="changeMenu(index)"
+      >
         <div class="side_block"></div>
         <component :is="item" class="svgItem" />
         <span class="iconfont" :class="item"></span>
@@ -33,10 +38,10 @@ let $router = useRouter()
 const changeMenu = (index: number) => {
   switch (index) {
     case 0:
-      console.log("跳转");
+      console.log('跳转')
       $router.push({
-        name: "chatHome"
-      });
+        name: 'chatHome',
+      })
       break
     case 1:
       ElMessage('该功能还没有开发哦，敬请期待一下吧~🥳')
