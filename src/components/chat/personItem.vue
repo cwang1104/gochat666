@@ -20,6 +20,7 @@
   // justify-content: center;
   align-items: center;
   border-radius: 7px;
+  background-color: rgb(50, 54, 68);
 
   .personInfo {
     margin-left: 5px;

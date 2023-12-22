@@ -34,7 +34,7 @@ import personItem from '@/components/chat/personItem.vue'
 
     .title {
       position: relative;
-      top: 50px;
+      top: 10px;
 
       h1 {
         color: white;
@@ -46,7 +46,7 @@ import personItem from '@/components/chat/personItem.vue'
       height: 70%;
       // width:100%;
       position: relative;
-      top: 20%;
+      top: 10%;
       padding: 10px;
 
       .chatPersonTitle {
@@ -56,6 +56,11 @@ import personItem from '@/components/chat/personItem.vue'
 
       .chatPersonList {
         margin-top: 10px;
+
+        .chatPersonListItem {
+          margin-top: 10px;
+        }
+
         .chatPersonListItem:hover {
           background-color: rgb(34, 102, 255);
         }
