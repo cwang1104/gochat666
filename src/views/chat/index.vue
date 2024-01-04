@@ -98,7 +98,7 @@ let msg2 = <MsgInfo>{
 
       .chatPersonList {
         margin-top: 10px;
-
+        overflow-y: scroll;
         .chatPersonListItem {
           margin-top: 10px;
         }
@@ -134,13 +134,13 @@ let msg2 = <MsgInfo>{
         // height: 15%;
         display: flex;
         align-items: center;
-        margin-top: px;
+        margin-top: 8px;
 
         .sendBar {
           padding: 10px;
           border-style: solid;
           border-radius: 10px;
-          background-color: rgb(54, 65, 73);
+          background-color: rgb(90, 93, 95);
           margin-left: auto;
           margin-right: auto;
         }
@@ -151,14 +151,14 @@ let msg2 = <MsgInfo>{
 
 /* 适用于基于 WebKit 的浏览器 */
 .chatWindowRecord::-webkit-scrollbar,
-.chatWindowRecord::-webkit-scrollbar {
+.chatPersonList::-webkit-scrollbar {
   width: 0;
   /* 移除滚动条空间 */
 }
 
 /* 可选：适用于基于 WebKit 的浏览器 */
 .chatWindowRecord::-webkit-scrollbar-thumb,
-.chatWindowRecord::-webkit-scrollbar-thumb {
+.chatPersonList::-webkit-scrollbar-thumb {
   background-color: transparent;
   /* 使滚动条拇指不可见 */
 }
