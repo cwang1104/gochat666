@@ -135,10 +135,8 @@ let msg2 = <MsgInfo>{
         display: flex;
         align-items: center;
         margin-top: px;
-        
 
         .sendBar {
-
           padding: 10px;
           border-style: solid;
           border-radius: 10px;
