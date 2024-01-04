@@ -19,7 +19,16 @@
         <chatWindowHeader></chatWindowHeader>
       </div>
       <div class="chatWindow">
-        <div class="chatWindowRecord">聊天记录</div>
+        <div class="chatWindowRecord">
+          <chatWindowRecord :msg="msg1"></chatWindowRecord>
+          <chatWindowRecord :msg="msg2"></chatWindowRecord>
+          <chatWindowRecord :msg="msg1"></chatWindowRecord>
+          <chatWindowRecord :msg="msg2"></chatWindowRecord>
+          <chatWindowRecord :msg="msg1"></chatWindowRecord>
+          <chatWindowRecord :msg="msg2"></chatWindowRecord>
+          <chatWindowRecord :msg="msg1"></chatWindowRecord>
+          <chatWindowRecord :msg="msg2"></chatWindowRecord>
+        </div>
         <div class="chatWindowSendBar">发送框</div>
       </div>
     </el-col>
@@ -29,6 +38,26 @@
 <script setup lang="ts">
 import personItem from '@/components/chat/personItem.vue'
 import chatWindowHeader from '@/components/chat/chatWindow/chatWindowHeader.vue'
+import chatWindowRecord from '@/components/chat/chatWindow/chatWindowRecord.vue'
+import MsgInfo from '@/components/chat/chatWindow/msg.ts'
+
+let msg1 = <MsgInfo>{
+  message:
+    'jackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjackjack',
+  createdTime: '10 pm',
+  avatar: '../../../images/background.png',
+  username: 'jack',
+  isOther: true,
+}
+
+let msg2 = <MsgInfo>{
+  message:
+    'tomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtomtom',
+  createdTime: '10 pm',
+  avatar: '../../../images/background.png',
+  username: 'tom',
+  isOther: false,
+}
 </script>
 
 <style lang="scss" scoped>
@@ -89,7 +118,28 @@ import chatWindowHeader from '@/components/chat/chatWindow/chatWindowHeader.vue'
       border-style: solid;
       border-radius: 10px;
       background-color: rgb(50, 54, 68);
+
+      .chatWindowRecord {
+        // margin-top: 20px;
+        width: 100%;
+        height: 85%;
+        overflow-y: auto;
+      }
     }
   }
+}
+
+/* 适用于基于 WebKit 的浏览器 */
+.chatWindowRecord::-webkit-scrollbar,
+.chatWindowRecord::-webkit-scrollbar {
+  width: 0;
+  /* 移除滚动条空间 */
+}
+
+/* 可选：适用于基于 WebKit 的浏览器 */
+.chatWindowRecord::-webkit-scrollbar-thumb,
+.chatWindowRecord::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  /* 使滚动条拇指不可见 */
 }
 </style>
