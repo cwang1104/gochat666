@@ -29,7 +29,9 @@
           <chatWindowRecord :msg="msg1"></chatWindowRecord>
           <chatWindowRecord :msg="msg2"></chatWindowRecord>
         </div>
-        <div class="chatWindowSendBar">发送框</div>
+        <div class="chatWindowSendBar">
+          <sendBar class="sendBar" />
+        </div>
       </div>
     </el-col>
   </el-row>
@@ -39,6 +41,7 @@
 import personItem from '@/components/chat/personItem.vue'
 import chatWindowHeader from '@/components/chat/chatWindow/chatWindowHeader.vue'
 import chatWindowRecord from '@/components/chat/chatWindow/chatWindowRecord.vue'
+import sendBar from '@/components/chat/chatWindow/sendBar.vue'
 import MsgInfo from '@/components/chat/chatWindow/msg.ts'
 
 let msg1 = <MsgInfo>{
@@ -124,6 +127,25 @@ let msg2 = <MsgInfo>{
         width: 100%;
         height: 85%;
         overflow-y: auto;
+      }
+
+      .chatWindowSendBar {
+        width: 100%;
+        // height: 15%;
+        display: flex;
+        align-items: center;
+        margin-top: px;
+        
+
+        .sendBar {
+
+          padding: 10px;
+          border-style: solid;
+          border-radius: 10px;
+          background-color: rgb(54, 65, 73);
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
   }
